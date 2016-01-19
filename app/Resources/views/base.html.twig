@@ -5,9 +5,17 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <base href="/">
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery.js') }}"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js"></script>
+            <script src="{{ asset('js/angular-route.min.js') }}"></script>
+            <script src="{{ asset('js/app/app.js') }}"></script>
+            <script src="{{ asset('js/app/services.js') }}"></script>
+            <script src="{{ asset('js/app/controllers.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
