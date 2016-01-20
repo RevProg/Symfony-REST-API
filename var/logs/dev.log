@@ -2032,3 +2032,7 @@
 [2016-01-20 14:06:16] doctrine.DEBUG: SELECT t0.id AS id_1, t0.name AS name_2 FROM tag t0 INNER JOIN photos_tags ON t0.id = photos_tags.tag_id WHERE photos_tags.photo_id = ? [1] []
 [2016-01-20 14:06:16] doctrine.DEBUG: SELECT t0.id AS id_1, t0.name AS name_2 FROM tag t0 INNER JOIN photos_tags ON t0.id = photos_tags.tag_id WHERE photos_tags.photo_id = ? [5] []
 [2016-01-20 14:06:16] doctrine.DEBUG: SELECT COUNT(p0_.id) AS sclr_0 FROM photo p0_ [] []
+[2016-01-20 18:38:17] php.DEBUG: symlink(): Could not fetch file information(error 3) {"type":2,"file":"C:\\OpenServer\\domains\\galery\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Filesystem\\Filesystem.php","line":308,"level":28928} []
+[2016-01-20 18:38:17] php.DEBUG: symlink(): Could not fetch file information(error 3) {"type":2,"file":"C:\\OpenServer\\domains\\galery\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Filesystem\\Filesystem.php","line":308,"level":28928} []
+[2016-01-20 18:50:11] php.DEBUG: symlink(): Could not fetch file information(error 3) {"type":2,"file":"C:\\OpenServer\\domains\\galery\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Filesystem\\Filesystem.php","line":308,"level":28928} []
+[2016-01-20 18:50:11] php.DEBUG: symlink(): Could not fetch file information(error 3) {"type":2,"file":"C:\\OpenServer\\domains\\galery\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Filesystem\\Filesystem.php","line":308,"level":28928} []

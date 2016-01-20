@@ -9,6 +9,7 @@ use AppBundle\Entity\Tag;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PhotoController extends FOSRestController
 {
@@ -98,7 +99,7 @@ class PhotoController extends FOSRestController
      */
     public function getPhotosCountAction(Request $request)
     {
-        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Photo')->count();
+        return intval($this->getDoctrine()->getManager()->getRepository('AppBundle:Photo')->count());
     }
 
     /**
@@ -114,22 +115,26 @@ class PhotoController extends FOSRestController
     {
         $photo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Photo')->find($id);
 
-        $tags = [];
-        $tagsString = '';
-        foreach ($photo->getTags() as &$tag) {
-            $tags[] = [
-                'id' => $tag->getId(),
-                'name' => $tag->getName(),
+        if ($photo instanceof Photo) {
+            $tags = [];
+            $tagsString = '';
+
+            foreach ($photo->getTags() as &$tag) {
+                $tags[] = [
+                    'id' => $tag->getId(),
+                    'name' => $tag->getName(),
+                ];
+            }
+
+            return [
+                'id' => $photo->getId(),
+                'title' => $photo->getTitle(),
+                'link' => $photo->getLink(),
+                'tags' => $tags,
+                'tagString' => implode(',', array_column($tags, 'name')),
             ];
         }
-
-        return [
-            'id' => $photo->getId(),
-            'title' => $photo->getTitle(),
-            'link' => $photo->getLink(),
-            'tags' => $tags,
-            'tagString' => implode(',', array_column($tags, 'name')),
-        ];
+        throw new NotFoundHttpException();
     }
 
     /**
