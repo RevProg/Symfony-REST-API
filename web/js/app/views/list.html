@@ -1,0 +1,32 @@
+<a ng-href="create">Добавить фото</a>
+<br>
+<a ng-href="search">Поиск</a>
+
+<div class="row">
+    <p>
+        Выберите страницу(по умолчанию первая):
+        <select ng-model="currentPage" class="form-control" ng-change="updateSource()">
+            <option ng-repeat="page in pagesArray track by $index">{{ page }}</option>
+        </select>
+    </p>
+    <table class="table table-bordered">
+        <tr>
+            <th>Название фото</th>
+            <th>Теги</th>
+            <th>Действия</th>
+        </tr>
+        <tr ng-repeat="photo in data">
+            <td>{{ photo.title }}</td>
+            <td>
+                <ul>
+                    <li ng-repeat="tag in photo.tags">{{ tag.name }}</li>
+                </ul>
+            </td>
+            <td>
+                <a ng-href="edit/{{ photo.id }}">Редактировать</a>
+                <a ng-click="delete(photo.id)">Удалить</a>
+            </td>
+        </tr>
+    </table>
+
+</div>

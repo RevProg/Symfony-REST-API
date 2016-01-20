@@ -29,7 +29,8 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/rest-bundle": "@dev",
         "jms/serializer-bundle": "@dev",
-        "nelmio/api-doc-bundle": "@dev"
+        "nelmio/api-doc-bundle": "@dev",
+        "qandidate/symfony-json-request-transformer": "^1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
